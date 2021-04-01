@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "icon" type = "image/png" href = "assets/img/logo.png">
+    <title>Freelancer - home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/font-awesome-line-awesome/css/all.min.css">
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        @font-face {
+            font-family: rbt;
+            src: url(assets/fonts/Roboto-Regular.ttf);
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            z-index: 3;
+        }
+
+        header input {
+            padding: 8px 8px 8px 35px;
+            width: 100%;
+            border: 1px solid #ddd;
+            outline: none;
+            border-radius: 3px;
+            background: url(assets/img/search-solid.svg) no-repeat 10px center/20px;
+        }
+
+        #h-left {
+            display: flex;
+            align-items: center;
+        }
+
+        #logo a {
+            margin: 0 5px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #555;
+            text-decoration: none;
+            color: #000;
+        }
+
+        #logo #img {
+            width: 35px;
+            height: 35px;
+            border-radius: 5px;
+            background-color: #555;
+            background-color: #7513a3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 26px;
+            color: #fff;
+            font-weight: bolder;
+            font-family: arial;
+            box-shadow: -4px -4px #555;
+            margin-right: 10px;
+        }
+
+        #select, #filter {
+            width: 140px;
+            height: 30px;
+            border: 1px solid #ccc;
+            margin: 0 5px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        #authenticate {
+           
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #authenticate a {
+            text-decoration: none;
+            border: 1px solid #ddd;
+            margin: 0 5px;
+            border-radius: 3px;
+            padding: 7px;
+            color: #000;
+        }
+
+        #categories {
+            box-shadow: 1px 1px 0 #eee;
+            position: fixed;
+            width: 700px;
+            height: 300px;
+            top: 50px;
+            background-color: #fff;
+            z-index: 10;
+            display: flex;
+            border-bottom-right-radius: 15px;
+            /* overflow-y: scroll; */
+        }
+
+        #categories h4 {
+            font-family: rbt;
+            font-weight: 600;
+            color: #555;
+        }
+
+        #categories > div {
+            padding: 20px;
+        }
+
+        #categories ul {
+            list-style: none;
+            padding: 0;
+            color: #555;
+        }
+
+        #categories ul li {
+            margin: 5px 0;
+            cursor: pointer;
+            font-family: rbt;
+            font-size: 14px;
+        }
+
+        section {
+            width: 80%;
+            margin: auto;
+        }
+
+        #cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        #card {
+            height: 420px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 5px 5px 0 #eee;
+            padding: 10px;
+            background-image: url(assets/img/v.png);
+            background-repeat: no-repeat;
+            background-position: -50px  -50px;
+            background-size: 300px;
+            transform: scale(.9);
+            transition: all .4s ease;
+        }
+
+        #card:hover {
+            transform: translateY(-5px);
+        }
+
+        #photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 100%;
+            border: 1px solid #eee;
+            margin: 20px auto;
+            background: url(assets/img/user.png) no-repeat center center/cover;
+        }
+
+        #card h3 {
+            text-align: center;
+            font-family: rbt;
+            font-size: 15px;
+            font-weight: normal;
+        }
+
+        #about {
+            height: 120px;
+            font-family: rbt;
+            font-size: 12px;
+        }
+
+        #location-contact {
+            bottom: 0;
+            padding: 10px;
+        }
+
+        #location {
+            margin: 10px 0;
+        }
+
+        #contact a {
+            text-decoration: none;
+            color: #7513a3;
+            font-size: 22px;
+        }
+
+        #professions button {
+            margin-right: 2px;
+            margin-bottom: 2px;
+            padding: 3px;
+            outline: none;
+            border: 1px solid #fff;
+            background-color: #f9f9f9;
+            border-radius: 25px;
+            font-size: 12px;
+            color: #555;
+            font-family: rbt;
+            cursor: pointer;
+            transition: all .3s ease;
+        }
+
+        #professions button:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="h-left">
+            <div id="logo"><a href="/"><div id="img">f</div><p>freelancer</p></a></div>
+            <div id="select"><i class="fas fa-angle-down" style="margin-right: 5px;"></i>Categoria</div>
+            <div id="filter"><i class="fa fa-filter" style="margin-right: 5px;"></i>Filtrar</div>
+        </div>
+
+        <form action="">
+            <input type="search" name="" id="" placeholder="Pesquisar no freelancer">
+        </form>
+
+        <div id="authenticate"><a href="/login"><i class="fa fa-user" style="margin-right: 5px;"></i>Entrar</a></div>
+
+        <div id="categories">
+            <div>
+                <h4>Explicadores</h4>
+                <ul>
+                    <li>Matemática</li>
+                    <li>Física</li>
+                    <li>Química</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Técnicos</h4>
+                <ul>
+                    <li>Carpinteiro</li>
+                    <li>Serralheiro</li>
+                    <li>Programador</li>
+                    <li>Jardineiro</li>
+                    <li>Encanador</li>
+                    <li>Electricista</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Roupa</h4>
+                <ul>
+                    <li>Estilista</li>
+                    <li>Modista</li>
+                    <li>Alfaiate</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Reparação</h4>
+                <ul>
+                    <li>Geleiras</li>
+                    <li>Televisores</li>
+                    <li>Celulares</li>
+                    <li>Computadores</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Outros</h4>
+                <ul>
+                    <li>Fotografia</li>
+                    <li>Video</li>
+                    <li>Cabelereiro(a)</li>
+                    <li>Manicure</li>
+                    <li>Diarista</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div id="cards">
+               
+            </div>
+        </section>
+    </main>
+
+
+    <script src="_libraries/js/jquery-3.5.1.min.js"></script>
+    <script>
+        $('#categories').toggle();
+
+        $('#select').click(()=> {
+            $('#categories').toggle();
+        });
+
+        $('header form').submit(evt=> {
+            evt.preventDefault();
+        });
+        
+        (async function() {
+            const users = await getUsers();
+            
+            let d = '';
+
+            for (let i = 0; i < users.length; i++) {
+                const user = users[i];
+                const {name, surname, description, city, bairro, professions, social} = user;
+
+                let btns = '';
+                for (let i = 0; i < professions.split(',').length - 1; i++) {
+                    const p = professions.split(',')[i];
+                    btns += `<button id="${p}">${p}</button>`;
+                }
+
+                const br = bairro === '' ? '' : ' ('+bairro+')'; 
+                const photo = user.photo  === ''? './assets/img/user.png' : './images/' +user.photo;
+                
+                d += `
+                <div id="card">
+                    <div id="photo"
+                        style="background: url(${photo}) no-repeat center center/cover;"
+                    >
+                    </div>
+                    <h3>${surname}, ${name}</h3>
+                    <p id="about">
+                        ${description}
+                    </p>
+                    
+                    <div id="professions">
+                        ${btns}
+                    </div>
+
+                    <div id="location-contact">
+                        <div id="location"><a href="#"><i class="fas fa-map-marker"></i></a>${city.toUpperCase()} ${br}</div>
+                        <div id="contact">
+                            <a target="_blank" href="${social.facebook}"><i class="fab fa-facebook-square"></i></a>
+                            <a target="_blank" href="${social.whatsapp}"><i class="fab fa-whatsapp"></i></a>
+                            <a target="_blank" href="${social.twitter}"><i class="fab fa-twitter"></i></a>
+                            <a target="_blank" href="${social.discord}"><i class="fab fa-discord"></i></a>
+                            <a target="_blank" href="${social.youtube}"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                `
+            }
+
+            $('#cards').append(d);
+
+        })();
+
+        async function getUsers() {
+            const ft =  await fetch('/users');
+            const res = await ft.json();
+            return res;
+        } 
+    </script>
+</body>
+</html>

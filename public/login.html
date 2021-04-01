@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "icon" type = "image/png" href = "assets/img/logo.png">
+    <title>Freelancer - login</title>
+    <style>
+
+        input:-webkit-autofill
+        {
+            -webkit-text-fill-color: rgb(54, 54, 53) !important;
+        }
+        * {
+            font-family: arial;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        #logo {
+            width: 35px;
+            height: 35px;
+            border-radius: 5px;
+            background-color: #555;
+            background-color: #7513a3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 26px;
+            color: #fff;
+            font-weight: bolder;
+            font-family: arial;
+            box-shadow: -4px -4px #555;
+            margin-right: 10px;
+        }
+
+        #form-wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        form {
+            width: 500px;
+            height: fit-content;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-top: 40px;
+            background-color: #fff;
+        }
+
+        .g-input {
+            position: relative;
+            width: 100%;
+        }
+
+        form input {
+            padding: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: all .4s ease;
+            display: block;
+            margin: 5px auto;
+        }
+
+        p {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            background-color: #fff;
+            height: fit-content;
+            padding: 0 5px;
+            font-size: 14px;
+        }
+
+        input[type="email"]:focus, input[type="password"]:focus {
+            box-shadow: 0 0 1px 1px #555;
+        } 
+
+        form input[type="submit"] {
+            background-color: #222;
+            color: #ddd;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            opacity: .8;
+        }
+
+        input[type="submit"]:active {
+            opacity: .9;
+        }
+
+        #links {
+            width: 100%;
+        }
+
+        #links a {
+            list-style: none;
+            color: blue;
+            display: block;
+            font-size: 13px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="form-wrap">
+        <div id="logo"><div id="img">f</div></div>
+        <form>
+            <div class="g-input" id="g-email">
+                <input type="email" id="email" placeholder="" autocomplete="off" required>
+                <p>Email</p>
+            </div>
+
+            <div class="g-input" id="g-pass">
+                <input type="password" id="pass" placeholder="" required>
+                <p>Senha</p>
+            </div>
+
+            <input type="submit" name="" value="Entrar">
+
+            <div id="links">
+                <a href="/signup">Registar-se</a>
+                <a href="/">Home</a>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="_libraries/js/jquery-3.5.1.min.js"></script>
+    <script>
+
+        $('#email').focus((evt)=> {
+            $('#g-email p').animate({'top': '-15px', 'color': 'blue'})
+        })
+
+        $('#email').blur((evt)=> {
+            if($('#email').val().length === 0) {
+                $('#g-email p').animate({'top': '0', 'color': 'blue'})
+            }
+        })
+
+        $('#pass').focus((evt)=> {
+            $('#g-pass p').animate({'top': '-15px', 'color': 'blue'})
+        })
+
+        $('#pass').blur((evt)=> {
+            if($('#pass').val().length === 0) {
+                $('#g-pass p').animate({'top': '0', 'color': 'blue'})
+            }
+        })
+        
+
+        $('form').submit(async (evt)=> {
+            evt.preventDefault()
+            const user = {
+                email: $('#email').val(),
+                pass: $('#pass').val(),
+            }
+
+            await login(user)
+        })
+
+        async function login(user) {
+            const {email, pass} = user;
+            
+            const ft = await fetch('http://localhost:3000/login',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({email, pass})
+            })
+
+            const res = await ft.json()
+
+            if(res.success) {
+                window.location.href = '/dashboard'
+            } else {
+                alert('Usuário ou senha inválidos!')
+            }
+        }
+    </script>
+</body>
+</html>
