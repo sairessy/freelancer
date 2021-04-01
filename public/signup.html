@@ -201,7 +201,7 @@
         async function register(user) {
             const {email, pass} = user;
             
-            const ft = await fetch('http://localhost:3000/register',{
+            const ft = await fetch('/register',{
                 cors: 'no-cors',
                 method: 'POST',
                 headers: {

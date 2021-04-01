@@ -181,7 +181,7 @@
         async function login(user) {
             const {email, pass} = user;
             
-            const ft = await fetch('http://localhost:3000/login',{
+            const ft = await fetch('/login',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
