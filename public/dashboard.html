@@ -198,6 +198,34 @@
             margin-left: 0;
             border-left: 0;
         }
+
+        @media screen and (max-width: 414px) {
+            main {
+                display: block;
+            }
+
+            aside {
+                padding: 0;
+                padding-top: 10px;
+            }
+
+            aside form {
+                width: 90%;
+            }
+
+            aside form input {
+                width: 100%;
+            }
+
+            section {
+                padding: 0;
+                height: unset;
+            }
+
+            section form {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -263,12 +291,22 @@
                 </select>
                 <select id="select-profession" required>
                     <option value=""></option>
-                    <option value="cabelereiro(a)">Cabelereiro</option>
-                    <option value="carpinteiro">Carpinteiro</option>
-                    <option value="electricista">Electricista</option>
                     <option value="matemático">Matemático</option>
+                    <option value="físico">Fisico</option>
+                    <option value="químico">Químico</option>
+                    <option value="informático">Informático</option>
+                    <option value="geólogo">Geólogo</option>
                     <option value="arquitecto">Arquitecto</option>
+                    <option value="engenheiro mecânico">Engenheiro mecânico</option>
+                    <option value="engenheiro eléctrico">Engenheiro eléctrico</option>
+                    <option value="engenheiro civil">Engenheiro civil</option>
+                    <option value="engenheiro informático">Engenheiro informático</option>
+                    <option value="electricista">Electricista</option>
                     <option value="jardineiro">Jardineiro</option>
+                    <option value="carpinteiro">Carpinteiro</option>
+                    <option value="serralheiro">Serralheiro</option>
+                    <option value="cabelereiro(a)">Cabelereiro</option>
+                    <option value="diarista">Diarista</option>
                 </select>
                 <p style="font-size: 13px; color: #555;">Profissão 1, Profissão 2,...</p>
                 <textarea name="description" id="description" cols="30" rows="10" placeholder="Escreva sobre si..." maxlength="300"></textarea>
@@ -346,7 +384,7 @@
                 }
             }
                 
-            const ft = await fetch('http://localhost:3000/publicinfo',{
+            const ft = await fetch('/publicinfo',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -396,7 +434,7 @@
             alert('Email alterado com sucesso!');
 
             const email = $('#email').val();
-            const ft = await fetch('http://localhost:3000/updatemail',{
+            const ft = await fetch('/updatemail',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

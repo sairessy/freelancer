@@ -44,6 +44,10 @@
             background: url(assets/img/search-solid.svg) no-repeat 10px center/20px;
         }
 
+        #bars {
+            display: none;
+        }
+
         #h-left {
             display: flex;
             align-items: center;
@@ -133,13 +137,18 @@
             list-style: none;
             padding: 0;
             color: #555;
+            display: flex;
+            flex-wrap: wrap;
         }
 
         #categories ul li {
-            margin: 5px 0;
+            margin: 5px;
             cursor: pointer;
             font-family: rbt;
             font-size: 14px;
+            background-color: #ddd;
+            padding: 5px;
+            border-radius: 25px;
         }
 
         section {
@@ -164,7 +173,6 @@
             background-repeat: no-repeat;
             background-position: -50px  -50px;
             background-size: 300px;
-            transform: scale(.9);
             transition: all .4s ease;
         }
 
@@ -227,6 +235,54 @@
         #professions button:hover {
             text-decoration: underline;
         }
+
+        #more {
+            margin: 10px;
+            padding: 10px;
+            width: 170px;
+            cursor: pointer;
+            background-color: #7513a3;
+            border: none;
+            outline: none;
+            color: #fff;
+            border-radius: 2px;
+            box-shadow: 2px 2px 0 #aaa;
+        }
+
+        #more i {
+            margin-right: 5px;
+        }
+
+        #more:hover {
+            opacity: .8;
+        }
+
+        #more:active {
+            box-shadow: none;
+        }
+
+        @media screen and (max-width: 414px) {
+            #card {
+                transform: scale(1);
+            }
+
+            #select, #filter {
+                display: none;
+            }
+
+            header input {
+                width: 20px;
+                display: none;
+            }
+
+            section {
+                width: unset;
+            }
+
+            #bars {
+                display: inline-block;
+            }
+        }
     </style>
 </head>
 <body>
@@ -242,55 +298,25 @@
         </form>
 
         <div id="authenticate"><a href="/login"><i class="fa fa-user" style="margin-right: 5px;"></i>Entrar</a></div>
-
+        <div id="bars"><i class="fa fa-bars" style="font-size: 22px;" ></i></div>
         <div id="categories">
             <div>
-                <h4>Explicadores</h4>
                 <ul>
-                    <li>Matemática</li>
-                    <li>Física</li>
-                    <li>Química</li>
-                </ul>
-            </div>
-
-            <div>
-                <h4>Técnicos</h4>
-                <ul>
+                    <li>Matemático</li>
+                    <li>Fisico</li>
+                    <li>Químico</li>
+                    <li>Informático</li>
+                    <li>Geólogo</li>
+                    <li>Arquitecto</li>
+                    <li>Engenheiro mecânico</li>
+                    <li>Engenheiro eléctrico</li>
+                    <li>Engenheiro civil</li>
+                    <li>Engenheiro informático</li>
+                    <li>Electricista</li>
+                    <li>Jardineiro</li>
                     <li>Carpinteiro</li>
                     <li>Serralheiro</li>
-                    <li>Programador</li>
-                    <li>Jardineiro</li>
-                    <li>Encanador</li>
-                    <li>Electricista</li>
-                </ul>
-            </div>
-
-            <div>
-                <h4>Roupa</h4>
-                <ul>
-                    <li>Estilista</li>
-                    <li>Modista</li>
-                    <li>Alfaiate</li>
-                </ul>
-            </div>
-
-            <div>
-                <h4>Reparação</h4>
-                <ul>
-                    <li>Geleiras</li>
-                    <li>Televisores</li>
-                    <li>Celulares</li>
-                    <li>Computadores</li>
-                </ul>
-            </div>
-
-            <div>
-                <h4>Outros</h4>
-                <ul>
-                    <li>Fotografia</li>
-                    <li>Video</li>
-                    <li>Cabelereiro(a)</li>
-                    <li>Manicure</li>
+                    <li>Cabelereiro</li>
                     <li>Diarista</li>
                 </ul>
             </div>
@@ -302,6 +328,8 @@
             <div id="cards">
                
             </div>
+
+            <button id="more"><i class="fa fa-plus"></i>Mostrar mais</button>
         </section>
     </main>
 
