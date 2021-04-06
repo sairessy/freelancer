@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "icon" type = "image/png" href = "assets/img/logo.png">
-    <title>Freelancer - Dashboard</title>
+    <title>Freelancerr - Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/font-awesome-line-awesome/css/all.min.css">
     <style>
         * {
@@ -26,7 +26,7 @@
         body {
             padding: 0;
             margin: 0;
-            background-color: #fcfcfc;
+            background-color: #fff;
         }
 
         header {
@@ -71,7 +71,7 @@
             height: 35px;
             border-radius: 5px;
             background-color: #555;
-            background-color: #7513a3;
+            background-color: #000;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -92,11 +92,12 @@
 
         #authenticate a {
             text-decoration: none;
-            border: 1px solid #ddd;
+            border: 1px solid #000;
             margin: 0 5px;
             border-radius: 3px;
             padding: 7px;
-            color: #000;
+            background-color: #7513a3;
+            color: #fff;
         }
 
         main {
@@ -231,7 +232,7 @@
 <body>
     <header>
         <div id="h-left">
-            <div id="logo"><a href="/"><div id="img">f</div><p>freelancer</p></a></div>
+            <div id="logo"><a href="/"><div id="img">f</div><p>freelancerr.</p></a></div>
         </div>
 
         <div id="authenticate"><a href="/logout"><i class="fa fa-key" style="margin-right: 5px;"></i>Sair</a></div>
@@ -307,6 +308,11 @@
                     <option value="serralheiro">Serralheiro</option>
                     <option value="cabelereiro(a)">Cabelereiro</option>
                     <option value="diarista">Diarista</option>
+                    <option value="músico">Músico</option>
+                    <option value="dj">DJ</option>
+                    <option value="pintor">Pintor</option>
+                    <option value="desenhista">Desenhista</option>
+                    <option value="mc">MC</option>
                 </select>
                 <p style="font-size: 13px; color: #555;">Profissão 1, Profissão 2,...</p>
                 <textarea name="description" id="description" cols="30" rows="10" placeholder="Escreva sobre si..." maxlength="300"></textarea>
