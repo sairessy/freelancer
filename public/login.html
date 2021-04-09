@@ -92,12 +92,14 @@
 
         .g-input p {
             position: absolute;
-            top: 5px;
+            top: 0;
             left: 20px;
             background-color: #fff;
             height: fit-content;
             padding: 0 5px;
-            font-size: 14px;
+            font-size: 18px;
+            color: #999;
+            pointer-events: none;
         }
 
         input[type="email"]:focus, input[type="password"]:focus {
@@ -167,7 +169,7 @@
             <input type="submit" name="" value="Entrar">
 
             <div id="links">
-                <a href="/signup">Registar-se</a>
+                <a href="/signup">Registrar-se</a>
                 <a href="/">Home</a>
             </div>
         </form>
@@ -178,22 +180,26 @@
     <script>
 
         $('#email').focus((evt)=> {
-            $('#g-email p').animate({'top': '-15px', 'color': 'blue'})
+            $('#g-email p').animate({'top': '-15px', 'color': 'blue', 'font-size': '14px', 'color': '#000'}, 300)
+            $('#g-email p').css({'color': '#000'})
         })
 
         $('#email').blur((evt)=> {
             if($('#email').val().length === 0) {
-                $('#g-email p').animate({'top': '5px', 'color': 'blue'})
+                $('#g-email p').animate({'top': '0px', 'color': 'blue', 'font-size': '16px', 'color': '#999'})
+                $('#g-email p').css({'color': '#999'})
             }
         })
 
         $('#pass').focus((evt)=> {
-            $('#g-pass p').animate({'top': '-15px', 'color': 'blue'})
+            $('#g-pass p').animate({'top': '-15px', 'color': 'blue', 'font-size': '14px', 'color': '#000'}, 300)
+            $('#g-pass p').css({'color': '#000'})
         })
 
         $('#pass').blur((evt)=> {
             if($('#pass').val().length === 0) {
-                $('#g-pass p').animate({'top': '5px', 'color': 'blue'})
+                $('#g-pass p').animate({'top': '0', 'color': 'blue', 'font-size': '16px', 'color': '#999'})
+                $('#g-pass p').css({'color': '#999'})
             }
         })
         

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "icon" type = "image/png" href = "assets/img/logo.png">
-    <title>Freelancerr - Registar</title>
+    <title>Freelancerr - Registrar</title>
     <style>
         input:-webkit-autofill
         {
@@ -92,12 +92,14 @@
 
         .g-input p {
             position: absolute;
-            top: 5px;
+            top: 0;
             left: 20px;
             background-color: #fff;
             height: fit-content;
             padding: 0 5px;
-            font-size: 14px;
+            font-size: 16px;
+            color: #999;
+            pointer-events: none;
         }
 
         input[type="email"]:focus, input[type="password"]:focus {
@@ -169,7 +171,7 @@
                 <p>Confirmar senha</p>
             </div>
 
-            <input type="submit" name="" value="Registar">
+            <input type="submit" name="" value="Registrar">
 
             <div id="links">
                 <a href="/login">Fazer login</a>
@@ -183,32 +185,38 @@
     <script>
 
         $('#email').focus((evt)=> {
-            $('#g-email p').animate({'top': '-15px', 'color': 'blue'})
+            $('#g-email p').animate({'top': '-15px', 'color': 'blue', 'font-size': '14px', 'color': '#000'}, 300)
+            $('#g-email p').css({'color': '#000'})
         })
 
         $('#email').blur((evt)=> {
             if($('#email').val().length === 0) {
-                $('#g-email p').animate({'top': '5px', 'color': 'blue'})
+                $('#g-email p').animate({'top': '0', 'color': 'blue', 'font-size': '16px', 'color': '#999'})
+                $('#g-email p').css({'color': '#999'})
             }
         })
 
         $('#pass').focus((evt)=> {
-            $('#g-pass p').animate({'top': '-15px', 'color': 'blue'})
+            $('#g-pass p').animate({'top': '-15px', 'color': 'blue', 'font-size': '14px', 'color': '#000'}, 300)
+            $('#g-pass p').css({'color': '#000'})
         })
 
         $('#pass').blur((evt)=> {
             if($('#pass').val().length === 0) {
-                $('#g-pass p').animate({'top': '5px', 'color': 'blue'})
+                $('#g-pass p').animate({'top': '0', 'color': 'blue', 'font-size': '16px', 'color': '#999'})
+                $('#g-pass p').css({'color': '#999'})
             }
         });
 
         $('#c-pass').focus((evt)=> {
-            $('#g-c-pass p').animate({'top': '-15px', 'color': 'blue'})
+            $('#g-c-pass p').animate({'top': '-15px', 'color': 'blue', 'font-size': '14px', 'color': '#000'}, 300)
+            $('#g-c-pass p').css({'color': '#000'})
         })
 
         $('#c-pass').blur((evt)=> {
             if($('#c-pass').val().length === 0) {
-                $('#g-c-pass p').animate({'top': '5px', 'color': 'blue'})
+                $('#g-c-pass p').animate({'top': '0', 'color': 'blue', 'font-size': '16px', 'color': '#999'})
+                $('#g-c-pass p').css({'color': '#999'})
             }
         });
        
